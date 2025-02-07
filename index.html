@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgb(177, 177, 234);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            background: rgb(177, 177, 234);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        input {
+            padding: 7px;
+            margin: 7px;
+            outline: none;
+            border-radius: 15px;
+            border: none;
+            background: rgb(213, 213, 238);
+            color: black;
+        }
+
+        .loginButton {
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            padding: 4px;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 15px;
+            background: rgb(103, 103, 214);
+            color: white;
+        }
+
+        .forgotPassword {
+            font-size: 10px;
+            text-align: right;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+
+        .signup {
+            margin: 3px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Account no.">
+        <input type="password" placeholder="Password">
+        <a class="forgotPassword" href="forgotPassword.html">Forgot password?</a>
+        <a class="loginButton" href="login.html">Login</a>
+    </div>
+    <div class="signup">
+        <a href="signup.html">Don't have an account?</a>
+    </div>
+</body>
+</html>
