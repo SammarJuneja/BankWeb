@@ -65,9 +65,9 @@
 
 <body>
     <div class="box">
-        <input type="text" placeholder="Username">
-        <input type="text" placeholder="Account no.">
-        <input type="password" placeholder="Password">
+        <input id="username" type="text" placeholder="Username">
+        <input id="account" type="text" placeholder="Account no.">
+        <input id="password" type="password" placeholder="Password">
         <a class="forgotPassword" href="forgotPassword.html">Forgot password?</a>
         <a class="loginButton" href="login.html">Login</a>
     </div>
@@ -75,4 +75,31 @@
         <a href="signup.html">Don't have an account?</a>
     </div>
 </body>
+
+<script>
+    const username = document.getElementById("username");
+    const accountNo = document.getElementById("accountNo");
+    const password = document.getElementById("password");
+
+    async function login() {
+        try {
+            const result = await fetch("", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username,
+                    accountNo: accountNo,
+                    password: password
+                })
+            });
+
+            const data = await result.json();
+            localStorage.setItem("token", data.token);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+</script>
 </html>
