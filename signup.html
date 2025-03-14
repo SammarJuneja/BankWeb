@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgb(177, 177, 234);
+        }
+
+        .box {
+            margin-top: 150px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            background: rgb(177, 177, 234);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        input {
+            padding: 7px;
+            margin: 7px;
+            outline: none;
+            border-radius: 15px;
+            border: none;
+            background: rgb(213, 213, 238);
+            color: black;
+        }
+
+        .signupButton {
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            padding: 4px;
+            margin-top: 10px;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 15px;
+            background: rgb(103, 103, 214);
+            color: white;
+        }
+
+        .signupText {
+            text-align: center;
+            margin: 5px;
+        }
+
+        .login {
+            margin: 3px;
+            font-size: 13px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2 class="signupText">Signup</h2>
+        <input id="username" type="text" placeholder="Username">
+        <input id="email" type="text" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <a class="signupButton" href="home.html">Signup</a>
+    </div>
+    <div class="login">
+        <a href="index.html">Already have an account?</a>
+    </div>
+</body>
+
+<script>
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const apiLink = "";
+
+    async function login() {
+        try {
+            const result = await fetch(`${apiLink}`, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username,
+                    email: email,
+                    password: password
+                })
+            });
+
+            const data = await result.json();
+            localStorage.setItem("token", data.token);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+</script>
+</html>
